@@ -1,64 +1,578 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>InteroHR</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InteroHR | Heart Rate Awareness Training</title>
+  <meta
+    name="description"
+    content="InteroHR is an iOS app designed to help users train heart rate awareness, practice pulse estimation, and track recovery using wearable heart rate sensors."
+  />
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #5b6472;
+      --line: #e5e7eb;
+      --accent: #0f172a;
+      --accent-soft: #eaf1ff;
+      --blue: #2563eb;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius: 22px;
+      --maxw: 1100px;
+    }
 
-body{
-font-family: -apple-system, BlinkMacSystemFont, Arial;
-max-width:700px;
-margin:auto;
-padding:40px;
-line-height:1.6;
-color:#222;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-h1{
-font-size:36px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.section{
-margin-top:30px;
-}
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(180deg, #f8fbff 0%, #f7f9fc 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-</style>
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(92%, var(--maxw));
+      margin: 0 auto;
+    }
+
+    .nav {
+      padding: 20px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--accent);
+    }
+
+    .brand svg {
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .hero {
+      padding: 36px 0 48px;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(229, 231, 235, 0.8);
+      box-shadow: var(--shadow);
+      border-radius: 28px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 0;
+    }
+
+    .hero-copy {
+      padding: 56px 48px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--blue);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin: 0 0 18px;
+      color: var(--accent);
+    }
+
+    .hero-copy p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 58ch;
+      margin: 0 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.92;
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--accent);
+      border-color: var(--line);
+    }
+
+    .btn-secondary:hover {
+      background: #fafafa;
+      text-decoration: none;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 360px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.15), transparent 35%),
+        radial-gradient(circle at 80% 30%, rgba(14, 165, 233, 0.16), transparent 30%),
+        linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
+      border-left: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
+
+    .phone {
+      width: 260px;
+      max-width: 100%;
+      background: #0f172a;
+      border-radius: 34px;
+      padding: 12px;
+      box-shadow: 0 30px 60px rgba(15, 23, 42, 0.25);
+    }
+
+    .screen {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      border-radius: 24px;
+      padding: 20px 16px 18px;
+      min-height: 500px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pill {
+      width: 42%;
+      height: 18px;
+      border-radius: 999px;
+      background: #0f172a;
+      margin: 0 auto 18px;
+      opacity: 0.9;
+    }
+
+    .mini-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .app-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.05);
+      margin-bottom: 14px;
+    }
+
+    .score {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin: 6px 0 4px;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .bars {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .bar {
+      height: 10px;
+      border-radius: 999px;
+      background: #e8eefc;
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #38bdf8);
+    }
+
+    section {
+      padding: 28px 0;
+    }
+
+    .section-header {
+      margin-bottom: 22px;
+    }
+
+    .section-header h2 {
+      font-size: 1.8rem;
+      margin: 0 0 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature-card,
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: var(--accent-soft);
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+    }
+
+    .feature-card h3,
+    .panel h3 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+
+    .feature-card p,
+    .panel p,
+    .panel li {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    ul.clean {
+      margin: 14px 0 0;
+      padding-left: 18px;
+    }
+
+    footer {
+      padding: 30px 0 50px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .hero-card,
+      .split,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        border-left: none;
+        border-top: 1px solid var(--line);
+      }
+
+      .hero-copy {
+        padding: 40px 24px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .hero {
+        padding-top: 10px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <!-- Main logo -->
+        <svg width="34" height="34" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="64" y2="64">
+              <stop offset="0%" stop-color="#2563eb"></stop>
+              <stop offset="100%" stop-color="#38bdf8"></stop>
+            </linearGradient>
+          </defs>
+          <rect x="4" y="4" width="56" height="56" rx="18" fill="url(#g1)"></rect>
+          <path d="M18 35c5-10 9-10 14 0s9 10 14 0" stroke="white" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M32 18v28" stroke="white" stroke-width="4.5" stroke-linecap="round"></path>
+          <circle cx="32" cy="18" r="4.5" fill="white"></circle>
+        </svg>
+        <span>InteroHR</span>
+      </div>
 
-<h1>InteroHR</h1>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#support">Support</a>
+        <a href="#privacy">Privacy</a>
+      </nav>
+    </div>
+  </header>
 
-<p>
-InteroHR is an iOS app designed to train awareness of your own heart rate and improve interoceptive accuracy.
-</p>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-copy">
+            <div class="eyebrow">iOS app for heart rate awareness training</div>
+            <h1>Train awareness from the inside out.</h1>
+            <p>
+              InteroHR helps users practice pulse estimation, improve awareness of their own heart rate,
+              and explore recovery patterns using compatible wearable heart rate sensors.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#support">Contact Support</a>
+              <a class="btn btn-secondary" href="#privacy">Privacy Information</a>
+            </div>
+          </div>
 
-<div class="section">
-<h2>Features</h2>
-<ul>
-<li>Pulse awareness training</li>
-<li>Recovery tracking</li>
-<li>Heart-rate sensor integration</li>
-<li>Insights into interoceptive accuracy</li>
-</ul>
-</div>
+          <div class="hero-visual">
+            <div class="phone" aria-label="App preview mockup">
+              <div class="screen">
+                <div class="pill"></div>
 
-<div class="section">
-<h2>Support</h2>
-<p>
-For support questions please contact:
-<br>
-support@interohr.com
-</p>
-</div>
+                <div class="mini-logo">
+                  <svg width="24" height="24" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="g2" x1="0" y1="0" x2="64" y2="64">
+                        <stop offset="0%" stop-color="#2563eb"></stop>
+                        <stop offset="100%" stop-color="#38bdf8"></stop>
+                      </linearGradient>
+                    </defs>
+                    <rect x="6" y="6" width="52" height="52" rx="16" fill="url(#g2)"></rect>
+                    <path d="M18 35c5-10 9-10 14 0s9 10 14 0" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M32 18v28" stroke="white" stroke-width="4" stroke-linecap="round"></path>
+                    <circle cx="32" cy="18" r="4.2" fill="white"></circle>
+                  </svg>
+                  <span>InteroHR</span>
+                </div>
 
-<div class="section">
-<h2>Privacy</h2>
-<p>
-InteroHR does not sell personal data.  
-A full privacy policy will be available before launch.
-</p>
-</div>
+                <div class="app-card">
+                  <div class="muted">Today’s pulse awareness score</div>
+                  <div class="score">84</div>
+                  <div class="muted">Improved from your recent average</div>
+                </div>
 
+                <div class="app-card">
+                  <div class="muted">Recovery trend</div>
+                  <div class="bars">
+                    <div class="bar"><span style="width: 72%;"></span></div>
+                    <div class="bar"><span style="width: 86%;"></span></div>
+                    <div class="bar"><span style="width: 64%;"></span></div>
+                    <div class="bar"><span style="width: 90%;"></span></div>
+                  </div>
+                </div>
+
+                <div class="app-card">
+                  <div class="muted">Session focus</div>
+                  <div style="font-weight:700; margin-top:6px; color:#0f172a;">Pulse Check • Recovery • Insight</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <div class="section-header">
+          <h2>What InteroHR does</h2>
+          <p>
+            InteroHR is designed to support structured heart rate awareness practice through guided estimation,
+            recovery-focused exercises, and simple performance insights over time.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="feature-card">
+            <div class="icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.4A4 4 0 0 1 19 11c0 5.4-7 10-7 10Z" stroke="#2563eb" stroke-width="2" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <h3>Pulse awareness training</h3>
+            <p>
+              Practice estimating your own heart rate and compare your estimate with sensor-based measurements.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3 12h4l2-6 4 12 2-6h6" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <h3>Recovery-focused sessions</h3>
+            <p>
+              Track recovery patterns after effort and build consistency through repeatable short exercises.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 19V9m5 10V5m5 14v-8m5 8V3" stroke="#2563eb" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+            </div>
+            <h3>Simple performance insights</h3>
+            <p>
+              Review trends over time to better understand accuracy, consistency, and session-to-session changes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="support">
+      <div class="container">
+        <div class="split">
+          <div class="panel">
+            <h3>Support</h3>
+            <p>
+              For questions, technical support, or product feedback, please contact:
+            </p>
+            <p style="margin-top: 14px; font-weight: 700;">
+              <a href="mailto:support@interohr.com">support@interohr.com</a>
+            </p>
+            <ul class="clean">
+              <li>General support inquiries</li>
+              <li>Bug reports and technical issues</li>
+              <li>Feedback on app usability and features</li>
+            </ul>
+          </div>
+
+          <div class="panel" id="privacy">
+            <h3>Privacy</h3>
+            <p>
+              InteroHR is designed with user privacy in mind. A full privacy policy will be published before
+              public release on the App Store.
+            </p>
+            <ul class="clean">
+              <li>Personal data is not sold</li>
+              <li>Data handling information will be clearly disclosed</li>
+              <li>App Store privacy details will match in-app behavior</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-card">
+        <div>
+          <strong>InteroHR</strong><br />
+          Heart rate awareness training for iPhone
+        </div>
+        <div>
+          Contact: <a href="mailto:support@interohr.com">support@interohr.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
