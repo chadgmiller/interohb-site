@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Science Behind InteroHR</title>
+  <meta
+    name="description"
+    content="Learn about the science behind InteroHR, including interoception, heart-rate awareness, and research on internal signal perception."
+  />
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #5b6472;
+      --line: #e5e7eb;
+      --accent: #0f172a;
+      --accent-soft: #eaf1ff;
+      --blue: #2563eb;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius: 22px;
+      --maxw: 980px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(180deg, #f8fbff 0%, #f7f9fc 100%);
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(92%, var(--maxw));
+      margin: 0 auto;
+    }
+
+    .nav { padding: 20px 0; }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .hero {
+      padding: 28px 0 20px;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(229, 231, 235, 0.8);
+      box-shadow: var(--shadow);
+      border-radius: 28px;
+      padding: 40px 32px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--blue);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin: 0 0 16px;
+      color: var(--accent);
+    }
+
+    .hero-card p {
+      font-size: 1.06rem;
+      color: var(--muted);
+      margin: 0;
+      max-width: 62ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.92;
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--accent);
+      border-color: var(--line);
+    }
+
+    .btn-secondary:hover {
+      background: #fafafa;
+      text-decoration: none;
+    }
+
+    main { padding: 20px 0 50px; }
+
+    .science-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 20px;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel h2 {
+      margin: 0 0 12px;
+      font-size: 1.45rem;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+    }
+
+    .panel p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .panel p:last-child {
+      margin-bottom: 0;
+    }
+
+    .callout {
+      background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
+      border: 1px solid #dbeafe;
+    }
+
+    .quote {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--accent);
+      margin: 0;
+    }
+
+    .research-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .research-item {
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fafcff;
+    }
+
+    .research-item strong {
+      display: block;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    footer {
+      padding: 12px 0 40px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .hero-card {
+        padding: 30px 22px;
+      }
+
+      .panel {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <svg width="34" height="34" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="64" y2="64">
+              <stop offset="0%" stop-color="#2563eb"></stop>
+              <stop offset="100%" stop-color="#38bdf8"></stop>
+            </linearGradient>
+          </defs>
+          <rect x="4" y="4" width="56" height="56" rx="18" fill="url(#g1)"></rect>
+          <path d="M18 35c5-10 9-10 14 0s9 10 14 0" stroke="white" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M32 18v28" stroke="white" stroke-width="4.5" stroke-linecap="round"></path>
+          <circle cx="32" cy="18" r="4.5" fill="white"></circle>
+        </svg>
+        <span>InteroHR</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="learn.html">Learn</a>
+        <a href="index.html#support">Support</a>
+        <a href="index.html#privacy">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="eyebrow">Science behind the app</div>
+        <h1>The Science Behind InteroHR</h1>
+        <p>
+          InteroHR is inspired by research on interoception — the brain’s ability to sense signals
+          from inside the body, such as heartbeats, breathing, and internal arousal.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="index.html">Back to home</a>
+          <a class="btn btn-secondary" href="mailto:support@interohr.com">Contact support</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="container science-layout">
+      <section class="panel">
+        <h2>Listening to the body</h2>
+        <p>
+          Every moment, the brain receives signals from inside the body — heartbeats, breathing rhythms,
+          muscle tension, and subtle shifts in internal state. The ability to perceive these signals is called
+          <strong>interoception</strong>.
+        </p>
+        <p>
+          Interoception is sometimes described as the brain’s internal sensing system. It helps us detect
+          whether we are calm or stressed, energized or fatigued, focused or overwhelmed. These signals shape
+          how we feel, how we interpret emotion, and how we respond to challenge.
+        </p>
+        <p>
+          Most of this sensing happens automatically. But research suggests that people differ in how accurately
+          they perceive their own internal signals.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>How interoception is studied</h2>
+        <p>
+          Scientists often study interoception using tasks that ask participants to estimate their own heartbeats
+          without feeling their pulse or using a device. After a short interval, the participant reports how many
+          beats they perceived, and that estimate is compared with the measured heart rate.
+        </p>
+        <p>
+          These experiments allow researchers to quantify <strong>interoceptive accuracy</strong> — how closely a person’s
+          perception matches the physiological signal. Some people show strong alignment. Others show much less.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>Why it matters</h2>
+        <p>
+          Interoception appears to play a role in emotional awareness, stress regulation, and decision making
+          under uncertainty. In daily life, internal signals can shape whether we interpret a situation as manageable,
+          threatening, energizing, or exhausting.
+        </p>
+        <p>
+          A body that feels legible from the inside may support clearer self-regulation. A body that feels noisy,
+          vague, or misleading can make interpretation harder. The science is still evolving, but the basic question
+          is a fascinating one: how much do internal signals help guide thought and behavior?
+        </p>
+      </section>
+
+      <section class="panel callout">
+        <p class="quote">
+          Instead of only asking what sensors detect, interoception asks a quieter question:
+          <strong>what does the body feel like from the inside?</strong>
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>Can interoception improve?</h2>
+        <p>
+          Researchers are still exploring this. Some studies suggest that repeated attention to internal signals,
+          especially when paired with structured feedback, may improve interoceptive accuracy in certain contexts.
+        </p>
+        <p>
+          At the same time, the field is nuanced. Different studies use different measurement methods, and the
+          relationship between interoception, performance, emotion, and regulation is not always simple.
+        </p>
+        <p>
+          InteroHR takes a practical stance: rather than treating interoception as a fixed trait, it treats it as
+          something worth observing, practicing, and understanding over time.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>How InteroHR fits in</h2>
+        <p>
+          InteroHR is designed as a simple tool for exploring heart-rate awareness. The app invites users to estimate
+          their heart rate under different conditions, compare perception with measured data, and observe how accuracy
+          and regulation shift over time.
+        </p>
+        <p>
+          The goal is not perfection. The goal is awareness.
+        </p>
+        <p>
+          With repeated observation, the relationship between physiology and perception may become easier to recognize.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>A note on interpretation</h2>
+        <p>
+          Interoception remains an active area of research, and scientists continue to debate the best ways to measure
+          and interpret it.
+        </p>
+        <p>
+          InteroHR is not a medical tool and does not diagnose or treat any condition. It is a structured way to observe
+          heart-rate perception and reflect on patterns over time.
+        </p>
+        <p>
+          Think of it as a personal instrument for exploring the signals of your own body.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>Selected research</h2>
+        <div class="research-list">
+          <div class="research-item">
+            <strong>Kandasamy, N., et al. (2016)</strong>
+            Interoceptive ability predicts survival on a London trading floor.
+          </div>
+          <div class="research-item">
+            <strong>Garfinkel, S. N., et al. (2015)</strong>
+            Knowing your own heart: distinguishing interoceptive accuracy, awareness, and sensibility.
+          </div>
+          <div class="research-item">
+            <strong>Pollatos and colleagues</strong>
+            Research linking interoceptive processes with decision making and emotional awareness.
+          </div>
+          <div class="research-item">
+            <strong>Sugawara, A., et al. (2020)</strong>
+            Experimental work exploring how interoceptive training may affect decision processes.
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>A final thought</h2>
+        <p>
+          Modern technology measures our bodies constantly — steps, sleep, heart rate, activity.
+        </p>
+        <p>
+          Interoception turns the lens inward.
+        </p>
+        <p>
+          Instead of relying only on external sensors, it asks how accurately we can sense our own internal state.
+          InteroHR is simply a tool to help explore that question.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-card">
+        <div>
+          <strong>InteroHR</strong><br />
+          Science, signal, and self-awareness
+        </div>
+        <div>
+          <a href="index.html">Home</a> ·
+          <a href="mailto:support@interohr.com">support@interohr.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
