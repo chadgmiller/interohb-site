@@ -21,6 +21,7 @@
 
     body {
       margin: 0;
+      overflow-x: hidden;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
       color: var(--text);
       background:
@@ -50,13 +51,14 @@
       display: flex;
       align-items: center;
       min-width: 0;
+      flex-shrink: 1;
     }
 
     .brand .lockup {
       height: 108px;
       width: auto;
       object-fit: contain;
-      flex: 0 0 auto;
+      flex: 0 1 auto;
       filter: drop-shadow(0 10px 24px rgba(47,125,246,0.10));
     }
 
@@ -93,6 +95,13 @@
       box-shadow: var(--shadow);
     }
 
+    .hero > div,
+    .section,
+    .card,
+    .panel {
+      min-width: 0;
+    }
+
     .eyebrow {
       display: inline-block;
       padding: 10px 14px;
@@ -109,6 +118,7 @@
       font-size: clamp(2.6rem, 5vw, 4.4rem);
       line-height: 0.98;
       letter-spacing: -0.05em;
+      overflow-wrap: anywhere;
     }
 
     .gradient-text {
@@ -125,6 +135,7 @@
     .panel li {
       color: var(--muted);
       line-height: 1.75;
+      overflow-wrap: anywhere;
     }
 
     .hero-card {
@@ -157,11 +168,13 @@
       margin: 0 0 12px;
       font-size: clamp(2rem, 3vw, 2.7rem);
       letter-spacing: -0.04em;
+      overflow-wrap: anywhere;
     }
 
     .intro {
       max-width: 780px;
       margin: 0 0 22px;
+      overflow-wrap: anywhere;
     }
 
     .cards {
@@ -195,6 +208,7 @@
       margin: 0 0 10px;
       font-size: 1.28rem;
       letter-spacing: -0.03em;
+      overflow-wrap: anywhere;
     }
 
     .split {
@@ -206,26 +220,6 @@
     .panel ul {
       margin: 0;
       padding-left: 18px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 10px;
-    }
-
-    .shot {
-      padding: 10px;
-      background: rgba(255,255,255,0.92);
-      border-radius: 26px;
-      border: 1px solid rgba(16,35,49,0.06);
-      box-shadow: 0 14px 28px rgba(16,35,49,0.05);
-    }
-
-    .shot img {
-      border-radius: 20px;
-      width: 100%;
     }
 
     .button-row {
@@ -243,6 +237,7 @@
       padding: 0 24px;
       border-radius: 999px;
       font-weight: 800;
+      text-align: center;
     }
 
     .button.primary {
@@ -264,23 +259,105 @@
       color: #738592;
       font-size: 0.93rem;
       line-height: 1.7;
+      overflow-wrap: anywhere;
     }
 
     @media (max-width: 1020px) {
       .hero,
       .cards,
-      .split,
-      .gallery {
+      .split {
         grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 720px) {
-      .shell { padding: 16px; }
-      .topbar { flex-direction: column; align-items: flex-start; }
-      .brand .lockup { height: 62px; }
+      .shell {
+        padding: 14px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+      }
+
+      .brand {
+        justify-content: flex-start;
+      }
+
+      .brand .lockup {
+        height: 78px;
+        max-width: 100%;
+      }
+
+      .nav {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
       .hero,
-      .section { padding: 24px; border-radius: 28px; }
+      .section {
+        padding: 20px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+        line-height: 1.04;
+      }
+
+      .section h2 {
+        font-size: 1.75rem;
+        line-height: 1.12;
+      }
+
+      .hero p,
+      .intro,
+      .section p,
+      .card p,
+      .panel p,
+      .panel li,
+      footer {
+        font-size: 0.98rem;
+        line-height: 1.65;
+      }
+
+      .button-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-card {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand .lockup {
+        height: 70px;
+      }
+
+      h1 {
+        font-size: 1.95rem;
+      }
+
+      .hero,
+      .section {
+        padding: 18px;
+      }
+
+      .eyebrow {
+        font-size: 0.88rem;
+        padding: 9px 12px;
+      }
+
+      .nav a {
+        padding: 10px 14px;
+      }
     }
   </style>
 </head>
@@ -288,7 +365,7 @@
   <div class="shell">
     <header class="topbar">
       <a href="index.html" class="brand" aria-label="InteroHR home">
-        <img class="lockup" src="InteroHR Word and Logo 1x.png" alt="InteroHR logo and wordmark">
+        <img class="lockup" src="InteroHR Word and Logo 2x.png" alt="InteroHR logo and wordmark">
       </a>
       <nav class="nav">
         <a href="index.html">Home</a>
@@ -308,12 +385,8 @@
         </p>
         <div class="button-row">
           <a class="button primary" href="index.html">Back to Home</a>
-          <a class="button secondary" href="mailto:hello@example.com">Support / contact</a>
+          <a class="button secondary" href="mailto:contact@interohr.com">Support / contact</a>
         </div>
-      </div>
-
-      <div class="hero-card">
-        <img src="InteroHR Word and Logo 1x.png" alt="InteroHR logo and wordmark">
       </div>
     </section>
 
