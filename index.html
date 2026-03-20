@@ -22,6 +22,7 @@
 
     body {
       margin: 0;
+      overflow-x: hidden;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
       color: var(--text);
       background:
@@ -51,13 +52,14 @@
       display: flex;
       align-items: center;
       min-width: 0;
+      flex-shrink: 1;
     }
 
     .brand .lockup {
       height: 108px;
       width: auto;
       object-fit: contain;
-      flex: 0 0 auto;
+      flex: 0 1 auto;
       filter: drop-shadow(0 10px 24px rgba(47,125,246,0.10));
     }
 
@@ -109,6 +111,15 @@
       pointer-events: none;
     }
 
+    .hero > div,
+    .section,
+    .panel,
+    .feature-card,
+    .support-card,
+    .coming-card {
+      min-width: 0;
+    }
+
     .eyebrow {
       display: inline-flex;
       align-items: center;
@@ -127,6 +138,7 @@
       font-size: clamp(2.8rem, 5vw, 4.8rem);
       line-height: 0.98;
       letter-spacing: -0.05em;
+      overflow-wrap: anywhere;
     }
 
     .gradient-text {
@@ -142,6 +154,7 @@
       line-height: 1.75;
       color: var(--muted);
       max-width: 650px;
+      overflow-wrap: anywhere;
     }
 
     .hero-note {
@@ -173,6 +186,7 @@
       border-radius: 999px;
       font-weight: 800;
       transition: transform 0.18s ease, box-shadow 0.18s ease;
+      text-align: center;
     }
 
     .button:hover {
@@ -207,6 +221,7 @@
       color: #496171;
       font-size: 0.94rem;
       font-weight: 700;
+      text-align: center;
     }
 
     .hero-visual {
@@ -303,6 +318,7 @@
       margin: 0;
       font-size: clamp(2rem, 3vw, 2.8rem);
       letter-spacing: -0.04em;
+      overflow-wrap: anywhere;
     }
 
     .section .intro {
@@ -310,6 +326,7 @@
       color: var(--muted);
       line-height: 1.75;
       max-width: 760px;
+      overflow-wrap: anywhere;
     }
 
     .feature-grid {
@@ -341,12 +358,14 @@
       margin: 0 0 10px;
       font-size: 1.28rem;
       letter-spacing: -0.03em;
+      overflow-wrap: anywhere;
     }
 
     .feature-card p {
       margin: 0;
       color: var(--muted);
       line-height: 1.75;
+      overflow-wrap: anywhere;
     }
 
     .split {
@@ -367,12 +386,14 @@
       margin: 0 0 12px;
       font-size: 1.42rem;
       letter-spacing: -0.03em;
+      overflow-wrap: anywhere;
     }
 
     .panel p,
     .panel li {
       color: var(--muted);
       line-height: 1.75;
+      overflow-wrap: anywhere;
     }
 
     .panel ul {
@@ -422,6 +443,7 @@
       margin: 0 0 12px;
       font-size: 1.5rem;
       letter-spacing: -0.03em;
+      overflow-wrap: anywhere;
     }
 
     .support-card p,
@@ -429,6 +451,7 @@
       color: var(--muted);
       line-height: 1.75;
       margin: 0 0 12px;
+      overflow-wrap: anywhere;
     }
 
     .links {
@@ -445,6 +468,7 @@
       border: 1px solid rgba(16,35,49,0.06);
       font-weight: 700;
       color: #385464;
+      overflow-wrap: anywhere;
     }
 
     .appstore-placeholder {
@@ -456,6 +480,7 @@
       border: 1px dashed rgba(39,184,170,0.38);
       font-weight: 800;
       color: #2d5f69;
+      text-align: center;
     }
 
     footer {
@@ -464,6 +489,7 @@
       color: #738592;
       font-size: 0.93rem;
       line-height: 1.7;
+      overflow-wrap: anywhere;
     }
 
     @media (max-width: 1040px) {
@@ -475,35 +501,128 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-visual { min-height: 540px; }
+      .hero-visual {
+        min-height: 500px;
+      }
 
       .phone-stack {
-        width: 400px;
+        width: 380px;
         max-width: 100%;
+        height: 500px;
+      }
+
+      .phone.one {
+        width: 215px;
+        top: 120px;
+      }
+
+      .phone.two {
+        width: 230px;
+      }
+
+      .mini-stat {
+        width: 190px;
       }
     }
 
     @media (max-width: 720px) {
-      .shell { padding: 16px; }
-      .topbar { flex-direction: column; align-items: flex-start; }
-      .brand .lockup { height: 62px; }
-      .hero,
-      .section { padding: 24px; border-radius: 28px; }
-      .hero-visual { min-height: 500px; }
-      .phone.one { width: 220px; top: 140px; }
-      .phone.two { width: 235px; right: 0; }
-      .mini-stat { width: 200px; right: 4px; bottom: 0; }
-    }
+      .shell {
+        padding: 14px;
+      }
 
-    @media (max-width: 720px) {
-      .brand .lockup { height: 78px; }
-      h1 { font-size: 2.5rem; }
+      .topbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+      }
+
+      .brand {
+        justify-content: flex-start;
+      }
+
+      .brand .lockup {
+        height: 78px;
+        max-width: 100%;
+      }
+
+      .nav {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .hero,
+      .section {
+        padding: 20px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 2.25rem;
+        line-height: 1.04;
+      }
+
+      .section h2 {
+        font-size: 1.75rem;
+        line-height: 1.12;
+      }
+
+      .hero p,
+      .section .intro,
+      .feature-card p,
+      .panel p,
+      .panel li,
+      .support-card p,
+      .coming-card p,
+      footer {
+        font-size: 0.98rem;
+        line-height: 1.65;
+      }
+
+      .cta-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .meta-row {
+        gap: 10px;
+      }
+
+      .pill {
+        font-size: 0.88rem;
+      }
+
+      .hero-visual {
+        display: none;
+      }
     }
 
     @media (max-width: 480px) {
-      .brand .lockup { height: 70px;}
+      .brand .lockup {
+        height: 70px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .hero,
+      .section {
+        padding: 18px;
+      }
+
+      .eyebrow {
+        font-size: 0.88rem;
+        padding: 9px 12px;
+      }
+
+      .nav a {
+        padding: 10px 14px;
+      }
     }
-    
   </style>
 </head>
 <body>
@@ -647,7 +766,7 @@
             Questions, launch interest, partnerships, or feedback? Keep a simple contact path on the home page so visitors do not have to hunt for it.
           </p>
           <div class="links">
-            <a class="link-pill" href="mailto:contact@interhr.com">contact@interohr.com</a>
+            <a class="link-pill" href="mailto:contact@interohr.com">contact@interohr.com</a>
             <a class="link-pill" href="learn.html">Learn more</a>
           </div>
         </div>
