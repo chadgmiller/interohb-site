@@ -4,15 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>InteroHR | Train Inner Awareness</title>
+  <link rel="icon" type="image/png" sizes="1024x1024" href="AppIcon 1024x1024 Universal.png">
+  <link rel="apple-touch-icon" href="AppIcon 1024x1024 Universal.png">
   <style>
     :root {
       --screen-bg: #eef4f3;
       --screen-bg-2: #f7fbfa;
-      --card: rgba(255,255,255,0.92);
-      --card-soft: rgba(255,255,255,0.80);
       --text: #102331;
       --muted: #617787;
-      --line: rgba(16,35,49,0.08);
       --teal: #27b8aa;
       --blue: #2f7df6;
       --shadow: 0 18px 45px rgba(23, 65, 84, 0.10);
@@ -20,10 +19,7 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    
-    <link rel="icon" type="image/png" sizes="1024x1024" href="AppIcon 1024x1024 Universal.png">
-    <link rel="apple-touch-icon" href="AppIcon 1024x1024 Universal.png">
-    
+
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
@@ -54,23 +50,15 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 20px;
       min-width: 0;
     }
 
-    .brand .logo {
-      width: 96px;
-      height: 96px;
-      object-fit: contain;
-      filter: drop-shadow(0 10px 24px rgba(47,125,246,0.12));
-      flex: 0 0 auto;
-    }
-
-    .brand .wordmark {
-      height: 64px;
+    .brand .lockup {
+      height: 74px;
       width: auto;
       object-fit: contain;
       flex: 0 0 auto;
+      filter: drop-shadow(0 10px 24px rgba(47,125,246,0.10));
     }
 
     .nav {
@@ -156,6 +144,19 @@
       max-width: 650px;
     }
 
+    .hero-note {
+      margin: 14px 0 0;
+      color: #3f5a6b;
+      line-height: 1.7;
+      font-size: 0.98rem;
+      background: rgba(255,255,255,0.68);
+      border: 1px solid rgba(16,35,49,0.06);
+      border-radius: 18px;
+      padding: 14px 16px;
+      display: inline-block;
+      max-width: 680px;
+    }
+
     .cta-row {
       display: flex;
       flex-wrap: wrap;
@@ -174,7 +175,9 @@
       transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
 
-    .button:hover { transform: translateY(-1px); }
+    .button:hover {
+      transform: translateY(-1px);
+    }
 
     .button.primary {
       color: white;
@@ -366,7 +369,8 @@
       letter-spacing: -0.03em;
     }
 
-    .panel p, .panel li {
+    .panel p,
+    .panel li {
       color: var(--muted);
       line-height: 1.75;
     }
@@ -404,7 +408,8 @@
       align-items: stretch;
     }
 
-    .support-card, .coming-card {
+    .support-card,
+    .coming-card {
       padding: 30px;
       border-radius: 30px;
       background: rgba(255,255,255,0.92);
@@ -412,13 +417,15 @@
       box-shadow: 0 14px 28px rgba(16,35,49,0.05);
     }
 
-    .support-card h3, .coming-card h3 {
+    .support-card h3,
+    .coming-card h3 {
       margin: 0 0 12px;
       font-size: 1.5rem;
       letter-spacing: -0.03em;
     }
 
-    .support-card p, .coming-card p {
+    .support-card p,
+    .coming-card p {
       color: var(--muted);
       line-height: 1.75;
       margin: 0 0 12px;
@@ -456,10 +463,15 @@
       padding: 24px 0 8px;
       color: #738592;
       font-size: 0.93rem;
+      line-height: 1.7;
     }
 
     @media (max-width: 1040px) {
-      .hero, .feature-grid, .split, .gallery, .support {
+      .hero,
+      .feature-grid,
+      .split,
+      .gallery,
+      .support {
         grid-template-columns: 1fr;
       }
 
@@ -474,9 +486,9 @@
     @media (max-width: 720px) {
       .shell { padding: 16px; }
       .topbar { flex-direction: column; align-items: flex-start; }
-      .brand .logo { width: 84px; height: 84px; }
-      .brand .wordmark { height: 52px; }
-      .hero, .section { padding: 24px; border-radius: 28px; }
+      .brand .lockup { height: 62px; }
+      .hero,
+      .section { padding: 24px; border-radius: 28px; }
       .hero-visual { min-height: 500px; }
       .phone.one { width: 220px; top: 140px; }
       .phone.two { width: 235px; right: 0; }
@@ -484,9 +496,7 @@
     }
 
     @media (max-width: 480px) {
-      .brand { gap: 14px; }
-      .brand .logo { width: 78px; height: 78px; }
-      .brand .wordmark { height: 46px; }
+      .brand .lockup { height: 56px; }
       h1 { font-size: 2.5rem; }
     }
   </style>
@@ -495,8 +505,7 @@
   <div class="shell">
     <header class="topbar">
       <a href="index.html" class="brand" aria-label="InteroHR home">
-        <img class="logo" src="AppIcon 512x512 Transparent.png" alt="InteroHR app logo">
-        <img class="wordmark" src="InteroHR Word only.png" alt="InteroHR wordmark">
+        <img class="lockup" src="InteroHR Word and Logo 1x.png" alt="InteroHR logo and wordmark">
       </a>
       <nav class="nav">
         <a class="active" href="index.html">Home</a>
@@ -517,7 +526,7 @@
 
         <div class="cta-row">
           <a class="button primary" href="learn.html">Explore the science</a>
-          <a class="button secondary" href="mailto:support@interohr.com">Support / contact</a>
+          <a class="button secondary" href="mailto:hello@example.com">Support / contact</a>
         </div>
 
         <div class="meta-row">
@@ -526,6 +535,11 @@
           <div class="pill">Insights & trends</div>
           <div class="pill">Interoceptive Index</div>
         </div>
+
+        <p class="hero-note">
+          <strong>Requires a compatible Bluetooth-enabled heart rate device.</strong>
+          InteroHR is not a medical device and is intended for training and self-awareness purposes only.
+        </p>
       </div>
 
       <div class="hero-visual">
@@ -628,7 +642,7 @@
             Questions, launch interest, partnerships, or feedback? Keep a simple contact path on the home page so visitors do not have to hunt for it.
           </p>
           <div class="links">
-            <a class="link-pill" href="mailto:support@interohr.com">support@interohr.com</a>
+            <a class="link-pill" href="mailto:hello@example.com">hello@example.com</a>
             <a class="link-pill" href="learn.html">Learn more</a>
           </div>
         </div>
@@ -644,7 +658,7 @@
     </section>
 
     <footer>
-      InteroHR is intended for training and self-awareness purposes only and is not medical advice.
+      Requires a compatible Bluetooth-enabled heart rate device. InteroHR is not a medical device and is intended for training and self-awareness purposes only. It does not provide medical advice, diagnosis, or treatment.
     </footer>
   </div>
 </body>
