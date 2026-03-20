@@ -1,111 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>InteroHR Learn</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InteroHR | Learn</title>
+  <style>
+    :root {
+      --screen-bg: #eef4f3;
+      --screen-bg-2: #f7fbfa;
+      --card: rgba(255,255,255,0.92);
+      --text: #102331;
+      --muted: #617787;
+      --teal: #27b8aa;
+      --blue: #2f7df6;
+      --shadow: 0 18px 45px rgba(23, 65, 84, 0.10);
+    }
 
-<style>
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-  background: #eef4f3;
-  color: #102331;
-}
+    * { box-sizing: border-box; }
 
-.container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 20px;
-}
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(39,184,170,0.10), transparent 26%),
+        radial-gradient(circle at top right, rgba(47,125,246,0.08), transparent 24%),
+        linear-gradient(180deg, var(--screen-bg-2) 0%, var(--screen-bg) 56%, #f9fbfb 100%);
+    }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-}
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
+    .shell {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 24px;
+    }
 
-.brand img.logo {
-  width: 70px;
-}
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
 
-.brand img.word {
-  height: 36px;
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
 
-.nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #5f7383;
-  font-weight: 600;
-}
+    .brand .logo {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 24px rgba(47,125,246,0.12));
+    }
 
-.section {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-}
+    .brand .wordmark {
+      height: 64px;
+      width: auto;
+      object-fit: contain;
+    }
 
-h1 {
-  font-size: 36px;
-}
+    .nav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
-p {
-  color: #5f7383;
-  line-height: 1.6;
-}
-</style>
+    .nav a {
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.60);
+      border: 1px solid rgba(255,255,255,0.55);
+      color: var(--muted);
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(16,35,49,0.03);
+    }
+
+    .nav a.active,
+    .nav a:hover {
+      background: rgba(255,255,255,0.95);
+      color: var(--text);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 28px;
+      padding: 36px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.73));
+      border: 1px solid rgba(255,255,255,0.76);
+      border-radius: 40px;
+      box-shadow: 0 18px 45px rgba(23, 65, 84, 0.10);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(39,184,170,0.12);
+      color: #2d6069;
+      font-size: 0.95rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.6rem, 5vw, 4.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--teal), var(--blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p, .section p, .card p, .panel p, .panel li {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .hero-card {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      border-radius: 32px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(16,35,49,0.06);
+      box-shadow: 0 14px 28px rgba(16,35,49,0.05);
+    }
+
+    .hero-card img {
+      width: min(100%, 420px);
+      height: auto;
+    }
+
+    .section {
+      margin-top: 30px;
+      padding: 32px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.68));
+      border-radius: 36px;
+      border: 1px solid rgba(255,255,255,0.72);
+      box-shadow: 0 18px 45px rgba(23, 65, 84, 0.10);
+    }
+
+    .section h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 3vw, 2.7rem);
+      letter-spacing: -0.04em;
+    }
+
+    .intro {
+      max-width: 780px;
+      margin: 0 0 22px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card, .panel {
+      padding: 24px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(16,35,49,0.06);
+      box-shadow: 0 14px 28px rgba(16,35,49,0.05);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(47,125,246,0.10);
+      color: #466a88;
+      font-size: 0.82rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .card h3, .panel h3 {
+      margin: 0 0 10px;
+      font-size: 1.28rem;
+      letter-spacing: -0.03em;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .panel ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .shot {
+      padding: 10px;
+      background: rgba(255,255,255,0.92);
+      border-radius: 26px;
+      border: 1px solid rgba(16,35,49,0.06);
+      box-shadow: 0 14px 28px rgba(16,35,49,0.05);
+    }
+
+    .shot img {
+      border-radius: 20px;
+      width: 100%;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-weight: 800;
+    }
+
+    .button.primary {
+      color: white;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      box-shadow: 0 16px 34px rgba(44, 136, 199, 0.22);
+    }
+
+    .button.secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.95);
+      border: 1px solid rgba(16,35,49,0.08);
+      box-shadow: 0 10px 24px rgba(16,35,49,0.06);
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 0 8px;
+      color: #738592;
+      font-size: 0.93rem;
+    }
+
+    @media (max-width: 1020px) {
+      .hero, .cards, .split, .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .shell { padding: 16px; }
+      .topbar { flex-direction: column; align-items: flex-start; }
+      .brand .logo { width: 84px; height: 84px; }
+      .brand .wordmark { height: 52px; }
+      .hero, .section { padding: 24px; border-radius: 28px; }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="shell">
+    <header class="topbar">
+      <a href="index.html" class="brand" aria-label="InteroHR home">
+        <img class="logo" src="AppIcon 512x512 Transparent.png" alt="InteroHR app logo">
+        <img class="wordmark" src="InteroHR Word only.png" alt="InteroHR wordmark">
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a class="active" href="learn.html">Learn</a>
+      </nav>
+    </header>
 
-<div class="container">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">The science behind InteroHR</div>
+        <h1>Why <span class="gradient-text">interoception</span> matters</h1>
+        <p>
+          Interoception is your ability to sense signals coming from inside your body, such as heart rate, breathing, tension, and internal activation.
+        </p>
+        <p>
+          InteroHR focuses on heart-rate awareness because it is concrete, measurable, and trainable. The app helps you compare what you feel with what is actually happening, then learn from that difference over time.
+        </p>
+        <div class="button-row">
+          <a class="button primary" href="index.html">Back to Home</a>
+          <a class="button secondary" href="mailto:hello@example.com">Support / contact</a>
+        </div>
+      </div>
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="brand">
-      <img src="AppIcon 512x512 Transparent.png" class="logo">
-      <img src="InteroHR Word only.png" class="word">
-    </div>
+      <div class="hero-card">
+        <img src="InteroHR Word and Logo 1x.png" alt="InteroHR logo and wordmark">
+      </div>
+    </section>
 
-    <div class="nav">
-      <a href="index.html">Home</a>
-      <a href="learn.html">Learn</a>
-    </div>
+    <section class="section">
+      <h2>The short version</h2>
+      <p class="intro">
+        Better interoception can support self-awareness and regulation. InteroHR turns that idea into a practice by helping you estimate, observe, repeat, and recognize patterns rather than only passively view biometrics.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="tag">Awareness</div>
+          <h3>Feel before you look</h3>
+          <p>Pulse Check asks you to estimate your heart rate before revealing it. That moment of sensing is what builds awareness.</p>
+        </div>
+        <div class="card">
+          <div class="tag">Calibration</div>
+          <h3>Compare felt vs actual</h3>
+          <p>Over time, InteroHR shows how close your felt sense is to reality and whether you are improving.</p>
+        </div>
+        <div class="card">
+          <div class="tag">Regulation</div>
+          <h3>Learn to downshift</h3>
+          <p>Recovery work helps you see whether awareness can translate into more intentional settling and control.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What the app measures</h2>
+      <p class="intro">
+        This page keeps the deeper explanation, while Home carries more of the initial story and motivation.
+      </p>
+
+      <div class="split">
+        <div class="panel">
+          <h3>Core dimensions</h3>
+          <ul>
+            <li><strong>Calibration:</strong> how close your estimate is to the actual value</li>
+            <li><strong>Bias:</strong> whether you tend to underestimate or overestimate</li>
+            <li><strong>Consistency:</strong> whether your awareness is stable across repeated sessions</li>
+            <li><strong>Context breadth:</strong> whether the skill carries across different situations</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Why context matters</h3>
+          <p>
+            Awareness in one situation does not always transfer automatically to another. You may read your body well while resting, but less accurately under caffeine, after movement, or during recovery work.
+          </p>
+          <p>
+            InteroHR is designed to help make those differences visible, so training becomes more personalized and more meaningful.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What it looks like</h2>
+      <p class="intro">
+        The interface is intentionally calm and lightweight so the focus stays on signal, reflection, and repeated practice.
+      </p>
+
+      <div class="gallery">
+        <div class="shot"><img src="InteroHR Insights.png" alt="InteroHR insights screenshot"></div>
+        <div class="shot"><img src="InteroHR Pulse Check Results.png" alt="InteroHR pulse check results screenshot"></div>
+        <div class="shot"><img src="InteroHR InteroceptiveIndex.png" alt="InteroHR interoceptive index screenshot"></div>
+      </div>
+    </section>
+
+    <footer>
+      InteroHR is intended for training and self-awareness purposes only and is not medical advice.
+    </footer>
   </div>
-
-  <!-- CONTENT -->
-  <div class="section">
-    <h1>What is Interoception?</h1>
-    <p>
-      Interoception is your ability to sense what is happening inside your body.
-    </p>
-  </div>
-
-  <div class="section">
-    <h2>Why it matters</h2>
-    <p>
-      Better interoception improves awareness, decision-making, and emotional regulation.
-    </p>
-  </div>
-
-  <div class="section">
-    <h2>How InteroHR helps</h2>
-    <p>
-      InteroHR turns awareness into a trainable skill using estimation, feedback, and repetition.
-    </p>
-  </div>
-
-</div>
-
 </body>
 </html>
 
