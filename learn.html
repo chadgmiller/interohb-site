@@ -318,18 +318,51 @@
       }
 
       .hero p,
+      .intro,
       .section p,
       .card p,
       .panel p,
       .panel li,
-      .intro,
       footer {
         font-size: 0.98rem;
-        line-height: 1.7;
+        line-height: 1.65;
+      }
+
+      .button-row {
+        flex-direction: column;
+        align-items: stretch;
       }
 
       .button {
         width: 100%;
+      }
+
+      .hero-card {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand .lockup {
+        height: 70px;
+      }
+
+      h1 {
+        font-size: 1.95rem;
+      }
+
+      .hero,
+      .section {
+        padding: 18px;
+      }
+
+      .eyebrow {
+        font-size: 0.88rem;
+        padding: 9px 12px;
+      }
+
+      .nav a {
+        padding: 10px 14px;
       }
     }
   </style>
@@ -337,174 +370,103 @@
 <body>
   <div class="shell">
     <header class="topbar">
-      <a class="brand" href="index.html" aria-label="InteroHR home">
-        <img class="lockup" src="InteroHR Word and Logo 1x.png" alt="InteroHR" />
+      <a href="index.html" class="brand" aria-label="InteroHR home">
+        <img class="lockup" src="InteroHR Word and Logo 2x.png" alt="InteroHR logo and wordmark">
       </a>
-      <nav class="nav" aria-label="Primary navigation">
+      <nav class="nav">
         <a href="index.html">Home</a>
         <a class="active" href="learn.html">Learn</a>
-        <a href="privacy.html">Privacy</a>
       </nav>
     </header>
 
     <section class="hero">
       <div>
-        <div class="eyebrow">Learn about InteroHR</div>
-        <h1>Understand <span class="gradient-text">interoception</span> in practice.</h1>
+        <div class="eyebrow">The science behind InteroHR</div>
+        <h1>Why <span class="gradient-text">interoception</span> matters</h1>
         <p>
-          InteroHR is built around a simple idea: people can get better at noticing internal
-          signals and responding to them more skillfully. The app turns that idea into a
-          practical training experience using heart-rate awareness and recovery exercises.
+          Interoception is your ability to sense signals coming from inside your body, such as heart rate, breathing, tension, and internal activation.
         </p>
         <p>
-          Instead of only showing you data, InteroHR asks you to pause, estimate, reflect,
-          and then compare what you sensed with what your connected device reports.
+          InteroHR focuses on heart-rate awareness because it is concrete, measurable, and trainable. The app helps you compare what you feel with what is actually happening, then learn from that difference over time.
         </p>
         <div class="button-row">
           <a class="button primary" href="index.html">Back to Home</a>
-          <a class="button secondary" href="privacy.html">Privacy details</a>
+          <a class="button secondary" href="mailto:contact@interohr.com">Support / contact</a>
         </div>
-      </div>
-
-      <div class="hero-card">
-        <img src="InteroHR AppIcon 1024.png" alt="InteroHR app icon" />
       </div>
     </section>
 
     <section class="section">
-      <h2>What InteroHR helps you practice</h2>
+      <h2>The short version</h2>
       <p class="intro">
-        The app focuses on awareness first, then regulation. You practice noticing what is
-        happening in your body, then experiment with ways to respond more effectively.
+        Better interoception can support self-awareness and regulation. InteroHR turns that idea into a practice by helping you estimate, observe, repeat, and recognize patterns rather than only passively view biometrics.
       </p>
 
       <div class="cards">
-        <article class="card">
-          <div class="tag">Estimate</div>
-          <h3>Feel before checking</h3>
-          <p>
-            Pause and estimate your heart rate before seeing the device value. This supports
-            body awareness rather than passive number-watching.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="tag">Reflect</div>
-          <h3>Notice context</h3>
-          <p>
-            Think about what may be shaping your internal state, such as stress, movement,
-            focus, rest, or recovery.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="tag">Regulate</div>
-          <h3>Practice calming</h3>
-          <p>
-            Use guided recovery exercises to explore what helps your body settle more
-            effectively in the moment.
-          </p>
-        </article>
+        <div class="card">
+          <div class="tag">Awareness</div>
+          <h3>Feel before you look</h3>
+          <p>Pulse Check asks you to estimate your heart rate before revealing it. That moment of sensing is what builds awareness.</p>
+        </div>
+        <div class="card">
+          <div class="tag">Calibration</div>
+          <h3>Compare felt vs actual</h3>
+          <p>Over time, InteroHR shows how close your felt sense is to reality and whether you are improving.</p>
+        </div>
+        <div class="card">
+          <div class="tag">Regulation</div>
+          <h3>Learn to downshift</h3>
+          <p>Recovery work helps you see whether awareness can translate into more intentional settling and control.</p>
+        </div>
       </div>
     </section>
 
     <section class="section">
-      <h2>How the training works</h2>
+      <h2>What the app measures</h2>
       <p class="intro">
-        InteroHR keeps the flow simple so it can become a repeatable daily practice rather than
-        a complicated data task.
+        This page keeps the deeper explanation, while Home carries more of the initial story and motivation.
       </p>
 
       <div class="split">
-        <article class="panel">
-          <div class="tag">Pulse Check</div>
-          <h3>Awareness practice</h3>
+        <div class="panel">
+          <h3>Core dimensions</h3>
+          <ul>
+            <li><strong>Calibration:</strong> how close your estimate is to the actual value</li>
+            <li><strong>Bias:</strong> whether you tend to underestimate or overestimate</li>
+            <li><strong>Consistency:</strong> whether your awareness is stable across repeated sessions</li>
+            <li><strong>Context breadth:</strong> whether the skill carries across different situations</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Why context matters</h3>
           <p>
-            You estimate your heart rate before revealing the device reading. Over time, this
-            can help sharpen your sense of how your body feels under different conditions.
+            Awareness in one situation does not always transfer automatically to another. You may read your body well while resting, but less accurately under caffeine, after movement, or during recovery work.
           </p>
-        </article>
-
-        <article class="panel">
-          <div class="tag">Recovery Challenge</div>
-          <h3>Regulation practice</h3>
           <p>
-            You work on bringing your heart rate down using breathing, attention, and other
-            calming strategies while the app tracks the result.
+            InteroHR is designed to help make those differences visible, so training becomes more personalized and more meaningful.
           </p>
-        </article>
+        </div>
       </div>
     </section>
 
     <section class="section">
-      <h2>What you need to use it</h2>
+      <h2>Requirements and important information</h2>
       <p class="intro">
-        InteroHR is designed to work with compatible Bluetooth heart-rate devices that can send
-        live heart-rate data to your phone.
+        <strong>Requires a compatible Bluetooth-enabled heart rate device.</strong>
+        InteroHR uses live heart-rate input during training sessions, so a compatible device is needed.
       </p>
-
-      <div class="split">
-        <article class="panel">
-          <div class="tag">Hardware</div>
-          <h3>Bluetooth heart-rate input</h3>
-          <p>
-            A compatible Bluetooth heart-rate strap or wearable is needed for the core training
-            flow. This allows the app to compare your estimate with a live reading.
-          </p>
-        </article>
-
-        <article class="panel">
-          <div class="tag">Important</div>
-          <h3>Wellness use only</h3>
-          <p>
-            InteroHR is intended for wellness and self-awareness training. It is not a medical
-            device and should not be used for diagnosis, treatment, or medical decisions.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Why this kind of practice matters</h2>
-      <p class="intro">
-        Interoception influences how we notice stress, effort, fatigue, calm, and readiness.
-        Training that awareness may help you respond more intentionally in daily life.
+      <p>
+        InteroHR is designed for wellness, training, and self-awareness purposes only. It is not a medical device and is not intended to diagnose, treat, cure, monitor, or prevent any disease or medical condition. It does not provide medical advice, diagnosis, or treatment.
       </p>
-
-      <div class="split">
-        <article class="panel">
-          <div class="tag">Everyday skill</div>
-          <h3>Better noticing</h3>
-          <p>
-            Regular check-ins can help you catch internal changes earlier, whether you are
-            resting, working, exercising, or recovering.
-          </p>
-        </article>
-
-        <article class="panel">
-          <div class="tag">Applied skill</div>
-          <h3>More grounded responses</h3>
-          <p>
-            Recovery practice lets you test calming strategies and learn which ones help your
-            body respond best.
-          </p>
-        </article>
-      </div>
-
-      <div class="button-row">
-        <a class="button primary" href="index.html">Explore InteroHR</a>
-        <a class="button secondary" href="privacy.html">Read Privacy Policy</a>
-      </div>
     </section>
 
     <footer>
-      © InteroHR. All rights reserved.<br />
-      <a href="index.html">Home</a> ·
-      <a href="privacy.html">Privacy</a> ·
-      <a href="mailto:contact@interohr.com">contact@interohr.com</a>
+      Requires a compatible Bluetooth-enabled heart rate device. InteroHR is not a medical device and is intended for training and self-awareness purposes only. It does not provide medical advice, diagnosis, or treatment.
     </footer>
   </div>
 </body>
 </html>
+
+
 
 
