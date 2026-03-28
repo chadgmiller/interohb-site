@@ -160,6 +160,10 @@
       width: min(100%, 420px);
       height: auto;
     }
+      
+    .nav a.active {
+        color: var(--teal);
+    }
 
     .section {
       margin-top: 30px;
@@ -369,15 +373,16 @@
 </head>
 <body>
   <div class="shell">
-    <header class="topbar">
-      <a href="index.html" class="brand" aria-label="InteroHR home">
-        <img class="lockup" src="InteroHR Word and Logo 2x.png" alt="InteroHR logo and wordmark">
-      </a>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a class="active" href="learn.html">Learn</a>
-      </nav>
-    </header>
+      <header class="topbar">
+          <a href="index.html" class="brand" aria-label="InteroHR home">
+              <img class="lockup" src="InteroHR Word and Logo 2x.png" alt="InteroHR logo and wordmark">
+          </a>
+          <nav class="nav">
+              <a class="active" href="index.html">Home</a>
+              <a href="learn.html">Learn</a>
+              <a href="privacy.html">Privacy</a>
+          </nav>
+      </header>
 
     <section class="hero">
       <div>
