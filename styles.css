@@ -121,6 +121,7 @@ footer {
   }
 
   h1 {
+    font-size: 2.25rem;
     line-height: 1.04;
   }
 
@@ -154,6 +155,10 @@ footer {
   .button {
     width: 100%;
   }
+
+  .hero-card {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -164,6 +169,10 @@ footer {
   .hero,
   .section {
     padding: 18px;
+  }
+
+  h1 {
+    font-size: 2rem;
   }
 
   .eyebrow {
