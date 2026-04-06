@@ -88,3 +88,90 @@ footer {
   line-height: 1.7;
   overflow-wrap: anywhere;
 }
+
+@media (max-width: 720px) {
+  .shell {
+    padding: 14px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .brand {
+    justify-content: flex-start;
+  }
+
+  .brand .lockup {
+    height: 78px;
+    max-width: 100%;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .hero,
+  .section {
+    padding: 20px;
+    border-radius: 24px;
+  }
+
+  h1 {
+    line-height: 1.04;
+  }
+
+  .section h2 {
+    font-size: 1.75rem;
+    line-height: 1.12;
+  }
+
+  .hero p,
+  .section p,
+  .section .intro,
+  .intro,
+  .feature-card p,
+  .card p,
+  .panel p,
+  .panel li,
+  .support-card p,
+  .coming-card p,
+  .small-note,
+  footer {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .cta-row,
+  .button-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand .lockup {
+    height: 70px;
+  }
+
+  .hero,
+  .section {
+    padding: 18px;
+  }
+
+  .eyebrow {
+    font-size: 0.88rem;
+    padding: 9px 12px;
+  }
+
+  .nav a {
+    padding: 10px 14px;
+  }
+}
