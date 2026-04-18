@@ -58,10 +58,8 @@ img { max-width: 100%; display: block; }
   color: var(--text);
 }
 
-/* Active link color uses breathTeal */
 .nav a.active { color: var(--teal); }
 
-/* Common utility styles */
 .eyebrow {
   display: inline-block;
   padding: 10px 14px;
@@ -78,6 +76,100 @@ img { max-width: 100%; display: block; }
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.hero > div,
+.section,
+.panel,
+.card,
+.feature-card,
+.support-card,
+.coming-card {
+  min-width: 0;
+}
+
+.hero p,
+.section p,
+.card p,
+.panel p,
+.panel li,
+.feature-card p,
+.support-card p,
+.coming-card p {
+  color: var(--muted);
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.section {
+  background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.68));
+  border-radius: 36px;
+  border: 1px solid rgba(255,255,255,0.72);
+  box-shadow: var(--shadow);
+}
+
+.section h2 {
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  letter-spacing: -0.04em;
+  overflow-wrap: anywhere;
+}
+
+.card,
+.panel {
+  padding: 24px;
+  border-radius: 28px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(16,35,49,0.06);
+  box-shadow: 0 14px 28px rgba(16,35,49,0.05);
+}
+
+.tag {
+  display: inline-block;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(47,125,246,0.10);
+  color: #466a88;
+  font-size: 0.82rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.card h3,
+.panel h3 {
+  margin: 0 0 10px;
+  font-size: 1.28rem;
+  letter-spacing: -0.03em;
+  overflow-wrap: anywhere;
+}
+
+.panel ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.button.primary {
+  color: white;
+  background: linear-gradient(135deg, var(--teal), var(--blue));
+  box-shadow: 0 16px 34px rgba(44, 136, 199, 0.22);
+}
+
+.button.secondary {
+  color: var(--text);
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(16,35,49,0.08);
+  box-shadow: 0 10px 24px rgba(16,35,49,0.06);
 }
 
 footer {

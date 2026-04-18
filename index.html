@@ -43,15 +43,6 @@
       pointer-events: none;
     }
 
-    .hero > div,
-    .section,
-    .panel,
-    .feature-card,
-    .support-card,
-    .coming-card {
-      min-width: 0;
-    }
-
     .eyebrow {
       display: inline-flex;
       align-items: center;
@@ -69,10 +60,7 @@
     .hero p {
       margin: 0 0 16px;
       font-size: 1.1rem;
-      line-height: 1.75;
-      color: var(--muted);
       max-width: 650px;
-      overflow-wrap: anywhere;
     }
 
     .hero-note {
@@ -96,32 +84,11 @@
     }
 
     .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 54px;
-      padding: 0 24px;
-      border-radius: 999px;
-      font-weight: 800;
       transition: transform 0.18s ease, box-shadow 0.18s ease;
-      text-align: center;
     }
 
     .button:hover {
       transform: translateY(-1px);
-    }
-
-    .button.primary {
-      color: white;
-      background: linear-gradient(135deg, var(--teal), var(--blue));
-      box-shadow: 0 16px 34px rgba(44, 136, 199, 0.22);
-    }
-
-    .button.secondary {
-      color: var(--text);
-      background: rgba(255,255,255,0.95);
-      border: 1px solid rgba(16,35,49,0.08);
-      box-shadow: 0 10px 24px rgba(16,35,49,0.06);
     }
 
     .meta-row {
@@ -217,10 +184,6 @@
     .section {
       margin-top: 32px;
       padding: 34px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.68));
-      border-radius: 36px;
-      border: 1px solid rgba(255,255,255,0.72);
-      box-shadow: var(--shadow);
     }
 
     .section-head {
@@ -241,10 +204,7 @@
 
     .section .intro {
       margin: 10px 0 0;
-      color: var(--muted);
-      line-height: 1.75;
       max-width: 760px;
-      overflow-wrap: anywhere;
     }
     /* Wide version of intro text (muted, full width) */
     .intro-wide {
@@ -288,9 +248,6 @@
 
     .feature-card p {
       margin: 0;
-      color: var(--muted);
-      line-height: 1.75;
-      overflow-wrap: anywhere;
     }
 
     .split {
@@ -312,18 +269,6 @@
       font-size: 1.42rem;
       letter-spacing: -0.03em;
       overflow-wrap: anywhere;
-    }
-
-    .panel p,
-    .panel li {
-      color: var(--muted);
-      line-height: 1.75;
-      overflow-wrap: anywhere;
-    }
-
-    .panel ul {
-      margin: 0;
-      padding-left: 18px;
     }
 
     .gallery {
@@ -373,10 +318,7 @@
 
     .support-card p,
     .coming-card p {
-      color: var(--muted);
-      line-height: 1.75;
       margin: 0 0 12px;
-      overflow-wrap: anywhere;
     }
 
     .links {
