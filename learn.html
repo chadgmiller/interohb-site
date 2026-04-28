@@ -80,6 +80,38 @@
       margin-top: 22px;
     }
 
+    .notice {
+      margin: 0 0 22px;
+      padding: 18px 20px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(16,35,49,0.08);
+      color: #435b6a;
+    }
+
+    .methodology-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .source-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .source-list li + li {
+      margin-top: 12px;
+    }
+
+    .source-list a {
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .section-anchor {
+      scroll-margin-top: 24px;
+    }
+
     @media (max-width: 1020px) {
       .hero,
       .cards,
@@ -115,6 +147,7 @@
         </p>
         <div class="button-row">
           <a class="button primary" href="index.html">Back to Home</a>
+          <a class="button secondary" href="#sources-methodology">View Sources &amp; Methodology</a>
           <a class="button secondary" href="mailto:contact@interohb.com">Support / contact</a>
         </div>
       </div>
@@ -173,49 +206,65 @@
       </div>
     </section>
 
-    <section class="section">
-      <h2>Research &amp; References</h2>
-      <p>
-        InteroHB is inspired by research on interoception, body awareness, and the relationship between internal signals, emotion, and self-awareness.
+    <section class="section section-anchor" id="sources-methodology">
+      <h2>Sources &amp; Methodology</h2>
+      <p class="notice">
+        InteroHB is designed for general wellness, self-awareness, and practice with in-app exercises. It is not a medical device, does not provide medical advice, and is not intended to diagnose, treat, cure, prevent, or monitor any disease or medical condition. Heart rate values are provided by the connected Bluetooth heart rate device.
       </p>
 
-      <div class="split">
-        <article class="panel">
-          <div class="tag">Reference</div>
-          <h3>How do you feel? Interoception: the sense of the physiological condition of the body</h3>
-          <p><strong>Authors:</strong> A. D. Craig (2002)</p>
-          <p>A foundational paper explaining interoception as the sensing of the body’s internal physiological state.</p>
-          <p><a href="https://pubmed.ncbi.nlm.nih.gov/12154366/" target="_blank" rel="noopener noreferrer">Read reference</a></p>
-        </article>
+      <div class="methodology-stack">
+        <div class="split">
+          <article class="panel">
+            <div class="tag">Methodology</div>
+            <h3>How InteroHB uses heart rate data</h3>
+            <p>
+              InteroHB uses heart rate values from a connected Bluetooth heart rate device during practice sessions. Heart rate can vary naturally based on movement, posture, breathing, stress, sleep, hydration, medication, fitness level, and other factors. InteroHB uses this information only to support reflection during in-app exercises.
+            </p>
+          </article>
 
-        <article class="panel">
-          <div class="tag">Reference</div>
-          <h3>Interoceptive dimensions across cardiac and respiratory axes</h3>
-          <p><strong>Authors:</strong> Sarah N. Garfinkel et al. (2016)</p>
-          <p>This paper shows that interoception has multiple dimensions and can differ across types of bodily signals.</p>
-          <p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5062102/" target="_blank" rel="noopener noreferrer">Read reference</a></p>
-        </article>
+          <article class="panel">
+            <div class="tag">Methodology</div>
+            <h3>Sense methodology</h3>
+            <p>
+              Sense sessions compare the user's estimated heartbeat or heart rate with the measured value from the connected heart rate device. The resulting score is app-specific and reflects performance within the exercise only. It should not be interpreted as a clinical measurement or medical assessment.
+            </p>
+          </article>
+        </div>
 
-        <article class="panel">
-          <div class="tag">Reference</div>
-          <h3>Interoception and emotion</h3>
-          <p><strong>Authors:</strong> Hugo D. Critchley and Sarah N. Garfinkel (2017)</p>
-          <p>A review describing how perception of internal body signals contributes to emotional experience and self-awareness.</p>
-          <p><a href="https://pubmed.ncbi.nlm.nih.gov/28950976/" target="_blank" rel="noopener noreferrer">Read reference</a></p>
-        </article>
+        <div class="split">
+          <article class="panel">
+            <div class="tag">Methodology</div>
+            <h3>Flow methodology</h3>
+            <p>
+              Flow sessions help users observe how their heartbeat and heart rate change over a period of time. Flow-related scores are based on session patterns within the app, such as consistency, estimation accuracy, and changes observed during the exercise. These scores are app-specific and are intended only for wellness reflection and practice.
+            </p>
+          </article>
 
-        <article class="panel">
-          <div class="tag">Reference</div>
-          <h3>Interoception and Mental Health: A Roadmap</h3>
-          <p><strong>Authors:</strong> Sahib S. Khalsa et al. (2018)</p>
-          <p>A broad review outlining how interoception is studied and why it matters in health and mental health research.</p>
-          <p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6054486/" target="_blank" rel="noopener noreferrer">Read reference</a></p>
-        </article>
+          <article class="panel">
+            <div class="tag">Methodology</div>
+            <h3>Interoceptive Index methodology</h3>
+            <p>
+              The Interoceptive Index is an app-specific wellness score based on patterns across completed sessions, including heartbeat estimation accuracy, consistency over time, and session context. It is designed to summarize practice trends within InteroHB. It is not a medical score, diagnostic score, clinical assessment, or measure of disease risk.
+            </p>
+          </article>
+        </div>
       </div>
 
-      <p>
-        These references are provided for educational purposes and do not imply that InteroHB is a medical device or provides medical treatment.
-      </p>
+      <div class="panel" style="margin-top: 18px;">
+        <div class="tag">Sources</div>
+        <h3>References and supporting links</h3>
+        <ul class="source-list">
+          <li><a href="https://www.heart.org/en/healthy-living/fitness/fitness-basics/target-heart-rates" target="_blank" rel="noopener noreferrer">American Heart Association — Target Heart Rates / Heart Rate Basics</a></li>
+          <li><a href="https://www.cdc.gov/physical-activity-basics/measuring/index.html" target="_blank" rel="noopener noreferrer">CDC — Measuring Physical Activity Intensity</a></li>
+          <li><a href="https://www.bluetooth.com/specifications/specs/heart-rate-service-1-0/" target="_blank" rel="noopener noreferrer">Bluetooth SIG — Heart Rate Service Specification</a></li>
+          <li><a href="https://royalsocietypublishing.org/doi/10.1098/rstb.2016.0014" target="_blank" rel="noopener noreferrer">Garfinkel et al. — Interoceptive dimensions across cardiac and respiratory axes</a></li>
+          <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5062103/" target="_blank" rel="noopener noreferrer">Brener &amp; Ring — Towards a psychophysics of interoceptive processes</a></li>
+          <li><a href="https://www.nature.com/articles/srep32986" target="_blank" rel="noopener noreferrer">Kandasamy et al. — Interoceptive Ability Predicts Survival on a London Trading Floor</a></li>
+        </ul>
+        <p style="margin: 18px 0 0;">
+          These sources are provided to support general educational information about heart rate, Bluetooth heart rate data, and interoception research. InteroHB's in-app scores are proprietary, app-specific wellness scores and are not clinical or diagnostic measures.
+        </p>
+      </div>
     </section>
     <footer>
       © InteroHB. All rights reserved.<br />
