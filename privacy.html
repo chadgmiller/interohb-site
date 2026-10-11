@@ -4,125 +4,175 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>InteroHB | Privacy</title>
+  <meta name="description" content="InteroHB privacy policy: what information the app accesses from Apple Watch, Apple Health, and Bluetooth heart rate devices, how it is used, and how your data stays on your device.">
+  <meta name="theme-color" content="#f5f9f9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#071119" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/x-icon" href="./favicon.ico?v=2">
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png?v=2">
   <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png?v=2">
   <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=2">
   <link rel="manifest" href="./site.webmanifest?v=2">
-  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="stylesheet" href="styles.css?v=2">
+  <script src="site.js?v=2" defer></script>
   <script data-goatcounter="https://inugoya.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
   <style>
-    .hero {
+    .date-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .date-chip svg { width: 16px; height: 16px; color: var(--teal-ink); }
+
+    .important {
+      background: var(--warn-soft);
+      border-color: rgba(232, 146, 52, 0.28);
+      box-shadow: none;
+    }
+    .important h2 { font-size: 1.35rem; margin-bottom: 12px; }
+
+    .glance { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .glance .card { padding: 20px; }
+    .glance .icon-badge { margin-bottom: 12px; width: 40px; height: 40px; }
+    .glance h3 { font-size: 1rem; }
+    .glance p { margin-top: 4px; font-size: 0.9rem; line-height: 1.5; }
+
+    .doc-layout {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 28px;
-      padding: 36px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.73));
-      border: 1px solid rgba(255,255,255,0.76);
-      border-radius: 40px;
-      box-shadow: var(--shadow);
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 56px;
+      align-items: start;
+      padding-top: 40px;
     }
 
-    h1 {
-      margin: 0 0 16px;
-      font-size: clamp(2.6rem, 5vw, 4.4rem);
-      line-height: 0.98;
-      letter-spacing: -0.05em;
+    .toc {
+      position: sticky;
+      top: calc(var(--header-h) + 28px);
+    }
+
+    .toc h2 {
+      margin-bottom: 12px;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--subtle);
+    }
+
+    .toc ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-left: 2px solid var(--border);
+    }
+
+    .toc a {
+      display: block;
+      margin-left: -2px;
+      padding: 7px 0 7px 16px;
+      border-left: 2px solid transparent;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .toc a:hover { color: var(--text); }
+    .toc a[aria-current] { color: var(--teal-ink); border-left-color: var(--teal); font-weight: 650; }
+
+    .doc-section { padding-bottom: 48px; }
+    .doc-section + .doc-section { padding-top: 48px; border-top: 1px solid var(--border); }
+    .doc-section h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); margin-bottom: 14px; }
+    .doc-section > p { max-width: 760px; font-size: 1.02rem; }
+    .doc-section .grid { margin-top: 24px; }
+    .doc-section .card { padding: 24px; }
+
+    .mail-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 16px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      font-weight: 700;
+      color: var(--blue-ink);
       overflow-wrap: anywhere;
     }
+    .mail-link svg { width: 18px; height: 18px; }
+    .mail-link:hover { border-color: var(--blue); }
 
-    .hero-card {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 30px;
-      border-radius: 32px;
-      background: rgba(255,255,255,0.92);
-      border: 1px solid rgba(16,35,49,0.06);
-      box-shadow: 0 14px 28px rgba(16,35,49,0.05);
-    }
-
-    .hero-card h2 {
-      margin: 0 0 10px;
-      font-size: 1.45rem;
-      letter-spacing: -0.03em;
-    }
-
-    .hero-card p {
-      margin: 0 0 14px;
-    }
-
-    .section {
-      margin-top: 30px;
-      padding: 32px;
-    }
-
-    .intro {
-      max-width: 780px;
-      margin: 0 0 22px;
-      overflow-wrap: anywhere;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 22px;
-    }
-
-    .small-note {
-      font-size: 0.96rem;
-      color: #4a6271;
-      background: rgba(255,255,255,0.78);
-      border: 1px solid rgba(16,35,49,0.06);
-      border-radius: 18px;
-      padding: 14px 16px;
-    }
-
-    @media (max-width: 1020px) {
-      .hero,
-      .cards,
-      .split {
-        grid-template-columns: 1fr;
+    @media (max-width: 1024px) {
+      .glance { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .doc-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+      .toc { position: static; }
+      .toc h2 { display: none; }
+      .toc ol {
+        display: flex;
+        gap: 8px;
+        border: 0;
+        overflow-x: auto;
+        margin-inline: -24px;
+        padding: 2px 24px 8px;
+        scrollbar-width: none;
+      }
+      .toc ol::-webkit-scrollbar { display: none; }
+      .toc a {
+        margin: 0;
+        padding: 7px 14px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: var(--surface);
+        white-space: nowrap;
       }
     }
 
+    @media (max-width: 720px) {
+      .toc ol { margin-inline: -16px; padding-inline: 16px; }
+      .doc-section { padding-bottom: 36px; }
+      .doc-section + .doc-section { padding-top: 36px; }
+    }
+
+    @media (max-width: 420px) {
+      .glance { grid-template-columns: minmax(0, 1fr); }
+    }
   </style>
 </head>
 <body>
-  <div class="shell">
-    <header class="topbar">
-      <a class="brand" href="index.html" aria-label="InteroHB home">
-          <img class="lockup" src="InteroHB Word and Logo.png" alt="InteroHB logo and wordmark">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="InteroHB home">
+        <img src="apple-touch-icon.png" width="36" height="36" alt="">
+        <span>InteroHB</span>
       </a>
-      <nav class="nav" aria-label="Primary navigation">
+      <nav class="nav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="learn.html">Learn</a>
-        <a class="active" href="privacy.html">Privacy</a>
+        <a href="privacy.html" aria-current="page">Privacy</a>
       </nav>
-    </header>
+      <a class="button primary small header-cta" href="https://apps.apple.com/jp/app/interohb/id6761402193?l=en-US" target="_blank" rel="noopener noreferrer">Get the app</a>
+    </div>
+  </header>
 
-    <section class="hero">
+  <main id="main">
+    <section class="hero compact container">
       <div>
-        <div class="eyebrow">Privacy Policy</div>
+        <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Privacy Policy</span>
         <h1>Your data, <span class="gradient-text">clearly explained</span>.</h1>
-        <p class="small-note"><strong>Effective Date:</strong> April 2026</p>
-        <p>
+        <div class="date-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+          <span><strong>Effective Date:</strong> October 2026</span>
+        </div>
+        <p class="lead">
           InteroHB is a wellness and fitness training app designed to help users practice
           heartbeat awareness through simple reflective exercises.
         </p>
@@ -133,12 +183,15 @@
         <div class="button-row">
           <a class="button primary" href="index.html">Back to Home</a>
           <a class="button secondary" href="https://apps.apple.com/jp/app/interohb/id6761402193?l=en-US" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
-          <a class="button secondary" href="learn.html">Learn more</a>
+          <a class="button ghost" href="learn.html">Learn more</a>
         </div>
       </div>
 
-      <div class="hero-card">
-        <h2>Important</h2>
+      <aside class="card important" aria-labelledby="important-title">
+        <div class="icon-badge warn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        </div>
+        <h2 id="important-title">Important</h2>
         <p>
           InteroHB is not a medical device and is not intended to diagnose, treat, cure,
           monitor, or prevent any disease or medical condition.
@@ -147,225 +200,356 @@
           Do not use InteroHB to make medical decisions. If you have concerns about your
           health, heart, or symptoms, consult a qualified healthcare professional.
         </p>
+      </aside>
+    </section>
+
+    <section class="container" aria-label="Privacy at a glance">
+      <div class="grid glance">
+        <div class="card" data-reveal>
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
+          <h3>Stored on your device</h3>
+          <p>Session data stays local.</p>
+        </div>
+        <div class="card" data-reveal>
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h3>No tracking</h3>
+          <p>No advertising or profiling.</p>
+        </div>
+        <div class="card" data-reveal>
+          <div class="icon-badge blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg></div>
+          <h3>Never sold</h3>
+          <p>We do not sell or share your data.</p>
+        </div>
+        <div class="card" data-reveal>
+          <div class="icon-badge blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
+          <h3>Your permission first</h3>
+          <p>Apple Health access only when you allow it.</p>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>Information we access</h2>
-      <p>
-        InteroHB may access information from compatible Bluetooth heart rate devices that you
-        choose to connect to the app.
-      </p>
+    <div class="container doc-layout">
+      <nav class="toc" aria-labelledby="toc-title">
+        <h2 id="toc-title">Contents</h2>
+        <ol>
+          <li><a href="#information">Information we access</a></li>
+          <li><a href="#usage">How information is used</a></li>
+          <li><a href="#apple-health">Apple Watch and Apple Health</a></li>
+          <li><a href="#subscriptions">Subscriptions and Billing</a></li>
+          <li><a href="#third-party">Third-Party Services</a></li>
+          <li><a href="#retention">Data Retention and Deletion</a></li>
+          <li><a href="#rights">Your Rights</a></li>
+          <li><a href="#medical">Medical disclaimer</a></li>
+          <li><a href="#choices">Your choices</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ol>
+      </nav>
 
-      <div class="cards">
-        <article class="card">
-          <div class="tag">Heartbeat</div>
-          <h3>Live heartbeat readings</h3>
+      <div>
+        <section class="doc-section" id="information">
+          <h2>Information we access</h2>
           <p>
-            The app may read current heartbeat values from a connected Bluetooth heart rate
-            device during training sessions.
+            InteroHB may access information from Apple Watch, Apple Health, and compatible Bluetooth
+            heart rate devices that you choose to connect to the app.
           </p>
-        </article>
 
-        <article class="card">
-          <div class="tag">Session data</div>
-          <h3>Practice results</h3>
-          <p>
-            InteroHB stores session history, insights, and related performance information
-            locally on your device.
-          </p>
-        </article>
+          <div class="grid grid-2">
+            <article class="card">
+              <div class="tag teal">Heartbeat</div>
+              <h3>Live heartbeat readings</h3>
+              <p>
+                The app may read current heartbeat values from Apple Watch, through the InteroHB
+                Apple Watch app, or from a connected Bluetooth heart rate device during training sessions.
+              </p>
+            </article>
 
-        <article class="card">
-          <div class="tag">Preferences</div>
-          <h3>App settings</h3>
+            <article class="card">
+              <div class="tag">Apple Health</div>
+              <h3>Health data you allow</h3>
+              <p>
+                With your permission, InteroHB may read heart rate data from Apple Health and may write
+                session data to Apple Health. You choose which data types to allow.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="tag">Session data</div>
+              <h3>Practice results</h3>
+              <p>
+                InteroHB stores session history, insights, and related performance information
+                locally on your device.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="tag">Preferences</div>
+              <h3>App settings</h3>
+              <p>
+                The app may store profile details, preferences, and settings needed to support the
+                user experience locally on your device.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="doc-section" id="usage">
+          <h2>How information is used</h2>
           <p>
-            The app may store profile details, preferences, and settings needed to support the
-            user experience locally on your device.
+            InteroHB is designed with privacy in mind. We do not collect or store your personal data on external servers.
+            All session data, including heartbeat measurements and performance metrics, is stored locally on your device.
+            Bluetooth is used solely to connect to compatible consumer-grade heart rate devices.
+            Apple Watch and Apple Health data are used solely to provide heart rate readings during sessions
+            and to save session data to Apple Health when you allow it.
+            We do not use your data for tracking, advertising, or profiling.
           </p>
-        </article>
+
+          <div class="grid grid-2">
+            <article class="card">
+              <div class="tag teal">Local storage</div>
+              <h3>What stays on your device</h3>
+              <p>
+                Heartbeat readings, session history, insights, and app preferences are intended to
+                remain on your device so you can review your progress without sending personal data
+                to external servers.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="tag">No hidden tracking</div>
+              <h3>How connections are used</h3>
+              <p>
+                Bluetooth is only used to connect to compatible consumer-grade heart rate devices. The InteroHB
+                Apple Watch app sends heart rate readings to the InteroHB app on your paired iPhone. InteroHB does
+                not use your data for advertising, tracking, or profiling.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="doc-section" id="apple-health">
+          <h2>Apple Watch and Apple Health</h2>
+          <p>
+            InteroHB works with Apple Watch through a companion Apple Watch app and integrates with
+            Apple Health (HealthKit). Access to Apple Health is optional and is only granted with your permission.
+          </p>
+
+          <div class="grid grid-2">
+            <article class="card">
+              <div class="tag teal">Apple Watch</div>
+              <h3>Companion watch app</h3>
+              <p>
+                The InteroHB Apple Watch app reads heart rate during your sessions and sends those readings
+                to the InteroHB app on your paired iPhone. It is not sent to our servers.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="tag">Apple Health</div>
+              <h3>Reading and writing Health data</h3>
+              <p>
+                With your permission, InteroHB may read heart rate data from Apple Health and write session
+                data to Apple Health. You can review or change these permissions at any time in the Health app
+                or in Settings.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="tag teal">Protection</div>
+              <h3>How Health data is treated</h3>
+              <p>
+                Data obtained from Apple Health is not used for advertising or marketing, is not sold, and
+                is not shared with third parties. It is used only to provide InteroHB's wellness features.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="tag">Apple</div>
+              <h3>Data managed by Apple</h3>
+              <p>
+                Data saved to Apple Health is stored and managed by Apple according to your Health and iCloud
+                settings and Apple's privacy policy.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="doc-section" id="subscriptions">
+          <h2>Subscriptions and Billing</h2>
+          <div class="grid grid-2">
+            <article class="card">
+              <div class="tag teal">Subscriptions</div>
+              <h3>Premium features</h3>
+              <p>
+                InteroHB offers optional premium features through auto-renewable subscriptions.
+                Subscription status may be used within the app to determine access to premium features.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="tag">Billing</div>
+              <h3>App Store payments</h3>
+              <p>
+                All payments are processed securely by Apple through your App Store account. We do not
+                have access to your full payment details. You can manage or cancel your subscription at
+                any time in your App Store account settings.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="doc-section" id="third-party">
+          <h2>Third-Party Services</h2>
+          <div class="grid grid-2">
+            <article class="card">
+              <div class="tag teal">Data sharing</div>
+              <h3>What we do not use</h3>
+              <p>
+                InteroHB does not use third-party advertising networks. We do not sell or share your
+                personal data.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="tag">Future tools</div>
+              <h3>Policy updates</h3>
+              <p>
+                If analytics or crash reporting tools are introduced in the future, this policy will be
+                updated accordingly.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="doc-section" id="retention">
+          <h2>Data Retention and Deletion</h2>
+          <div class="grid grid-2">
+            <article class="card">
+              <div class="tag teal">Retention</div>
+              <h3>How long data remains</h3>
+              <p>
+                All data is stored locally on your device.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="tag">Deletion</div>
+              <h3>How to remove data</h3>
+              <p>
+                You can delete your data at any time by deleting the app from your device. Deleting the app
+                does not remove data InteroHB saved to Apple Health; you can delete that data in the Health app.
+                If cloud features are introduced in the future, additional data management options will be provided.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="doc-section" id="rights">
+          <h2>Your Rights</h2>
+          <div class="grid grid-2">
+            <article class="card">
+              <div class="tag teal">Control</div>
+              <h3>Your data choices</h3>
+              <p>
+                You have full control over your data within the app. Since data is stored locally, you
+                can modify or delete it at any time.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="tag">Future updates</div>
+              <h3>Account-based features</h3>
+              <p>
+                If future updates introduce account-based features, we will provide clear options for
+                accessing and deleting your data.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="doc-section" id="medical">
+          <h2>Medical disclaimer</h2>
+          <p>
+            InteroHB is a personal wellness and self-awareness training app.
+          </p>
+
+          <div class="grid grid-2">
+            <article class="card">
+              <div class="tag teal">Not medical use</div>
+              <h3>How to understand the app</h3>
+              <p>
+                InteroHB is not intended to diagnose, treat, cure, monitor, or prevent any disease
+                or medical condition. It should not be used as a substitute for professional
+                medical advice or evaluation.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="tag">Safety</div>
+              <h3>When to seek help</h3>
+              <p>
+                If you experience concerning symptoms or have questions about your heart or health,
+                consult a qualified healthcare professional rather than relying on the app.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="doc-section" id="choices">
+          <h2>Your choices</h2>
+          <p>
+            You can stop using Apple Watch or Bluetooth-connected devices with the app at any time, change
+            or revoke Apple Health access in the Health app or in Settings, and can remove the app and its
+            locally stored data from your device.
+          </p>
+
+          <div class="button-row">
+            <a class="button primary" href="mailto:support@interohb.com">Contact us</a>
+            <a class="button secondary" href="learn.html">Back to Learn</a>
+          </div>
+        </section>
+
+        <section class="doc-section" id="contact">
+          <h2>Contact</h2>
+          <p>
+            If you have any questions about this Privacy Policy, please contact:
+          </p>
+          <a class="mail-link" href="mailto:support@interohb.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            support@interohb.com
+          </a>
+        </section>
       </div>
-    </section>
+    </div>
+  </main>
 
-    <section class="section">
-      <h2>How information is used</h2>
-      <p class="intro">
-        InteroHB is designed with privacy in mind. We do not collect or store your personal data on external servers.
-        All session data, including heartbeat measurements and performance metrics, is stored locally on your device.
-        Bluetooth is used solely to connect to compatible consumer-grade heart rate devices.
-        We do not use your data for tracking, advertising, or profiling.
-      </p>
-
-      <div class="split">
-        <article class="panel">
-          <div class="tag">Local storage</div>
-          <h3>What stays on your device</h3>
-          <p>
-            Heartbeat readings, session history, insights, and app preferences are intended to
-            remain on your device so you can review your progress without sending personal data
-            to external servers.
-          </p>
-        </article>
-
-        <article class="panel">
-          <div class="tag">No hidden tracking</div>
-          <h3>How connections are used</h3>
-          <p>
-            Bluetooth is only used to connect to compatible consumer-grade heart rate devices. InteroHB does
-            not use your data for advertising, tracking, or profiling.
-          </p>
-        </article>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand" aria-label="InteroHB home">
+            <img src="apple-touch-icon.png" width="36" height="36" alt="">
+            <span>InteroHB</span>
+          </a>
+          <p>Heartbeat awareness practice for iPhone and Apple Watch. InteroHB is not a medical device and is intended for training self-awareness purposes only.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Get in touch</h4>
+          <ul>
+            <li><a href="https://apps.apple.com/jp/app/interohb/id6761402193?l=en-US" target="_blank" rel="noopener noreferrer">App Store</a></li>
+            <li><a href="mailto:contact@interohb.com">contact@interohb.com</a></li>
+          </ul>
+        </div>
       </div>
-    </section>
-
-    <section class="section">
-      <h2>Subscriptions and Billing</h2>
-      <div class="split">
-        <article class="panel">
-          <div class="tag">Subscriptions</div>
-          <h3>Premium features</h3>
-          <p>
-            InteroHB offers optional premium features through auto-renewable subscriptions.
-            Subscription status may be used within the app to determine access to premium features.
-          </p>
-        </article>
-
-        <article class="panel">
-          <div class="tag">Billing</div>
-          <h3>App Store payments</h3>
-          <p>
-            All payments are processed securely by Apple through your App Store account. We do not
-            have access to your full payment details. You can manage or cancel your subscription at
-            any time in your App Store account settings.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Third-Party Services</h2>
-      <div class="split">
-        <article class="panel">
-          <div class="tag">Data sharing</div>
-          <h3>What we do not use</h3>
-          <p>
-            InteroHB does not use third-party advertising networks. We do not sell or share your
-            personal data.
-          </p>
-        </article>
-
-        <article class="panel">
-          <div class="tag">Future tools</div>
-          <h3>Policy updates</h3>
-          <p>
-            If analytics or crash reporting tools are introduced in the future, this policy will be
-            updated accordingly.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Data Retention and Deletion</h2>
-      <div class="split">
-        <article class="panel">
-          <div class="tag">Retention</div>
-          <h3>How long data remains</h3>
-          <p>
-            All data is stored locally on your device.
-          </p>
-        </article>
-
-        <article class="panel">
-          <div class="tag">Deletion</div>
-          <h3>How to remove data</h3>
-          <p>
-            You can delete your data at any time by deleting the app from your device. If cloud
-            features are introduced in the future, additional data management options will be provided.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Your Rights</h2>
-      <div class="split">
-        <article class="panel">
-          <div class="tag">Control</div>
-          <h3>Your data choices</h3>
-          <p>
-            You have full control over your data within the app. Since data is stored locally, you
-            can modify or delete it at any time.
-          </p>
-        </article>
-
-        <article class="panel">
-          <div class="tag">Future updates</div>
-          <h3>Account-based features</h3>
-          <p>
-            If future updates introduce account-based features, we will provide clear options for
-            accessing and deleting your data.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Medical disclaimer</h2>
-      <p class="intro">
-        InteroHB is a personal wellness and self-awareness training app.
-      </p>
-
-      <div class="split">
-        <article class="panel">
-          <div class="tag">Not medical use</div>
-          <h3>How to understand the app</h3>
-          <p>
-            InteroHB is not intended to diagnose, treat, cure, monitor, or prevent any disease
-            or medical condition. It should not be used as a substitute for professional
-            medical advice or evaluation.
-          </p>
-        </article>
-
-        <article class="panel">
-          <div class="tag">Safety</div>
-          <h3>When to seek help</h3>
-          <p>
-            If you experience concerning symptoms or have questions about your heart or health,
-            consult a qualified healthcare professional rather than relying on the app.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Your choices</h2>
-      <p>
-        You can stop using Bluetooth-connected devices with the app at any time and can remove
-        the app and its locally stored data from your device.
-      </p>
-
-      <div class="button-row">
-        <a class="button primary" href="mailto:support@interohb.com">Contact us</a>
-        <a class="button secondary" href="learn.html">Back to Learn</a>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Contact</h2>
-      <p>
-        If you have any questions about this Privacy Policy, please contact:
-      </p>
-      <p><a href="mailto:support@interohb.com">support@interohb.com</a></p>
-    </section>
-
-    <footer>
-      © InteroHB. All rights reserved.<br />
-      <a href="index.html">Home</a> ·
-      <a href="learn.html">Learn</a> ·
-      <a href="https://apps.apple.com/jp/app/interohb/id6761402193?l=en-US" target="_blank" rel="noopener noreferrer">App Store</a> ·
-      <a href="mailto:contact@interohb.com">contact@interohb.com</a>
-    </footer>
-  </div>
+      <div class="footer-bottom">© InteroHB. All rights reserved.</div>
+    </div>
+  </footer>
 </body>
 </html>
