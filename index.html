@@ -177,6 +177,37 @@
       text-transform: uppercase;
     }
 
+    /* Apple Watch card */
+    .watch-card { display: flex; gap: 28px; align-items: flex-end; }
+    .watch-card-body { flex: 1 1 auto; min-width: 0; }
+
+    .watch {
+      position: relative;
+      flex: 0 0 132px;
+      padding: 8px;
+      border-radius: 38px;
+      background: var(--device);
+      box-shadow: var(--shadow), inset 0 0 0 1.5px rgba(255, 255, 255, 0.08);
+    }
+    .watch::after {
+      content: "";
+      position: absolute;
+      top: 30%;
+      right: -5px;
+      width: 5px;
+      height: 26px;
+      border-radius: 0 3px 3px 0;
+      background: var(--device);
+    }
+    .watch img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 368 / 448;
+      border-radius: 30px;
+      background: #000;
+    }
+
     /* Practice split */
     .practice { grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); }
     .practice .card.tint { display: flex; flex-direction: column; }
@@ -222,6 +253,8 @@
       .stat-card { position: relative; right: auto; bottom: auto; margin-top: -72px; margin-left: 30%; width: min(70vw, 236px); }
 
       .trust { grid-template-columns: minmax(0, 1fr); }
+      .watch-card { flex-direction: column; align-items: stretch; }
+      .watch { flex-basis: auto; width: 128px; align-self: center; }
       .trust li + li { border-left: 0; border-top: 1px solid var(--border); }
       .trust li { padding: 16px 18px; }
 
@@ -383,19 +416,24 @@
       </div>
 
       <div class="grid grid-2">
-        <article class="card tint lift" data-reveal>
+        <article class="card tint lift watch-card" data-reveal>
           <span class="new-badge">New</span>
-          <div class="icon-badge blue">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="6" width="14" height="12" rx="3"/><path d="M9 6V3h6v3"/><path d="M9 18v3h6v-3"/><path d="M8 12h2l1-2 2 4 1-2h2"/></svg>
+          <div class="watch-card-body">
+            <div class="icon-badge blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="6" width="14" height="12" rx="3"/><path d="M9 6V3h6v3"/><path d="M9 18v3h6v-3"/><path d="M8 12h2l1-2 2 4 1-2h2"/></svg>
+            </div>
+            <h3>Apple Watch</h3>
+            <p>
+              The InteroHB companion app for Apple Watch provides heart rate readings during your sessions, so you can practice without extra hardware.
+            </p>
+            <ul class="check-list">
+              <li><span><strong>Companion watch app:</strong> heart rate readings from your wrist during sessions</span></li>
+              <li><span><strong>Apple Health:</strong> works with Apple Health, with your permission</span></li>
+            </ul>
           </div>
-          <h3>Apple Watch</h3>
-          <p>
-            The InteroHB companion app for Apple Watch provides heart rate readings during your sessions, so you can practice without extra hardware.
-          </p>
-          <ul class="check-list">
-            <li><span><strong>Companion watch app:</strong> heart rate readings from your wrist during sessions</span></li>
-            <li><span><strong>Apple Health:</strong> works with Apple Health, with your permission</span></li>
-          </ul>
+          <div class="watch">
+            <img src="InteroHB Watch.png" width="368" height="448" loading="lazy" alt="InteroHB Apple Watch app showing a live heart rate of 70 BPM with a Stop button">
+          </div>
         </article>
 
         <article class="card lift" data-reveal>
